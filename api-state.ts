@@ -1,13 +1,12 @@
 // The soup: every flag combination is representable, including the lies.
 interface SoupState<T> {
   isLoading: boolean;
-  isError: boolean;
   error?: string;
   data?: T;
 }
 
 // Nothing stops this object from existing:
-const lie: SoupState<string[]> = { isLoading: true, isError: true, data: [] };
+const lie: SoupState<string[]> = { isLoading: true, error: 'timeout', data: [] };
 
 // The union: only the states that can actually happen.
 export type ApiState<T> =
